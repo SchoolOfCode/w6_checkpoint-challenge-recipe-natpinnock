@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch</title>
+  </head>
+  <body>
+    <section id="recipe-section">
+      <h2 class="section-heading">Welcome to the Recipe Finder!</h2>
+      <input
+        aria-label="food-input"
+        id="food-input"
+        onchange="handleFoodChange()"
+      />
+      <button id="recipe-button" onclick="handleRecipeClick()">
+        Give me a recipe!
+      </button>
+      <a id="recipe-label"></a>
+    </section>
+    <script src="./main.js"></script>
+  </body>
+</html>
