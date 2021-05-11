@@ -9,6 +9,11 @@ function handleFoodChange() {
 }
 
 async function fetchRecipe(food) {
-  //--- write your code below ---
-  //--- write your code above ---
+  let response = await fetch(
+    `https://api.edamam.com/search?q=${foodToSearch}&app_id=3424b541&app_key=0e5519f0352e931ba2358451a65bc487`
+  );
+  let data = await response.json();
+  let recipeLabel = document.querySelector("#recipe-label");
+  recipeLabel.innerHTML = data.hits[0].recipe.label;
+  recipeLabel.href = data.hits[0].recipe.url;
 }
