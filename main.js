@@ -1,6 +1,10 @@
+let data = "";
+let recipeSection = "";
+let recipeLabel = "";
 let foodToSearch = null;
 
 function handleRecipeClick() {
+  recipeSection.innerHTML = "";
   fetchRecipe(foodToSearch);
 }
 
@@ -8,9 +12,6 @@ function handleFoodChange() {
   foodToSearch = document.querySelector("#food-input").value;
 }
 
-let data = "";
-let recipeSection = "";
-let recipeLabel = "";
 async function fetchRecipe(food) {
   let response = await fetch(
     `https://api.edamam.com/search?q=${foodToSearch}&app_id=3424b541&app_key=0e5519f0352e931ba2358451a65bc487`
@@ -30,5 +31,3 @@ async function fetchRecipe(food) {
     recipeBox.appendChild(recipeImage);
   }
 }
-
-//delete current items when a new search starts
