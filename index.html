@@ -3,11 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fetch</title>
+    <title>My Recipe Finder</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
-    <section id="recipe-section">
-      <h2 class="section-heading">Welcome to the Recipe Finder!</h2>
+  <body class="grid-container">
+    <h1 class="section-heading grid-item">My Recipe Finder</h1>
+    <section id="recipe-search" class="grid-item">
       <input
         aria-label="food-input"
         id="food-input"
@@ -16,6 +17,9 @@
       <button id="recipe-button" onclick="handleRecipeClick()">
         Give me a recipe!
       </button>
+    </section>
+    <section id="recipe-filter" class="grid-item"></section>
+    <section id="recipe-section" class="grid-item">
       <a id="recipe-label"></a>
     </section>
     <script src="./main.js"></script>
