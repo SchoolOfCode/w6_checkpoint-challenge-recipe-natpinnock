@@ -6,6 +6,9 @@ let mealType = "";
 let cuisineType = "";
 let calorieArray = [];
 let calories = "";
+let totalResults = "";
+let crd = "";
+let searchURL = "";
 
 handleRecipeClick = () => {
   recipeSection.innerHTML = "";
@@ -24,7 +27,6 @@ function handleFoodChange() {
 
 addRecipeToPage = (test) => {
   recipeSection = document.querySelector("#recipe-section");
-  recipeLink.appendChild(recipeSection);
   recipeBox = document.createElement("section");
   recipeBox.id = "recipebox";
   recipeSection.appendChild(recipeBox);
@@ -63,9 +65,11 @@ addRecipeToPage = (test) => {
 };
 async function fetchRecipe(food) {
   let response = await fetch(
-    `https://api.edamam.com/search?q=${foodToSearch}&app_id=3424b541&app_key=0e5519f0352e931ba2358451a65bc487`
+    `https://api.edamam.com/search?q=${foodToSearch}&app_id=3424b541&app_key=0e5519f0352e931ba2358451a65bc487&to=50`
   );
   data = await response.json();
+  totalResults = data.hits.length;
+  console.log(totalResults);
   if (data !== "") {
     for (i = 0; i < 5; i++) {
       addRecipeToPage(data);
@@ -81,12 +85,14 @@ async function fetchRecipe(food) {
 //apply filter functions
 async function filterMeals() {
   let response = await fetch(
-    `https://api.edamam.com/search?app_id=3424b541&app_key=0e5519f0352e931ba2358451a65bc487&q=${foodToSearch}${mealType}${cuisineType}${calories}`
+    `https://api.edamam.com/search?app_id=3424b541&app_key=0e5519f0352e931ba2358451a65bc487&to=50&q=${foodToSearch}${mealType}${cuisineType}${calories}`
   );
-  filterData = await response.json();
+  data = await response.json();
+  totalResults = data.hits.length;
+  console.log(totalResults);
   if (data !== "") {
     for (i = 0; i < 5; i++) {
-      addRecipeToPage(filterData);
+      addRecipeToPage(data);
     }
   } else {
     let searchSection = document.querySelector("#recipe-search");
@@ -119,10 +125,24 @@ function applyFilters() {
   });
   filterMeals();
 }
+//get location co-ords
+//search for nearby foodbanks in Give Food animationPlayState:
+function getCoords(position) {
+  crd = position.coords;
+}
+navigator.geolocation.getCurrentPosition(getCoords);
 
+async function findFoodBanks() {
+  lat = crd.latitude;
+  long = crd.longitude;
+  let response = await fetch("https://www.givefood.org.uk/api/2/locations/");
+  let foodBanks = await response.json();
+  console.log(foodBanks);
+}
+
+findFoodBanks();
 //catch error function
 
-//move link to entire recipe box
 //show next 5 on click
 //additional API
 //validation
