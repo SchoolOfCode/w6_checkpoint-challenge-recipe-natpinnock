@@ -24,6 +24,7 @@ function handleFoodChange() {
 
 addRecipeToPage = (test) => {
   recipeSection = document.querySelector("#recipe-section");
+  recipeLink.appendChild(recipeSection);
   recipeBox = document.createElement("section");
   recipeBox.id = "recipebox";
   recipeSection.appendChild(recipeBox);
