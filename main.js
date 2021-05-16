@@ -4,14 +4,18 @@ let recipeLabel = "";
 let foodToSearch = null;
 let mealType = "";
 let cuisineType = "";
+let calorieArray = [];
+let calories = "";
 
 handleRecipeClick = () => {
   recipeSection.innerHTML = "";
   fetchRecipe(foodToSearch);
-  let radio = document.getElementsByName("meal-type");
-  for (let i = 0; i < radio.length; i++) radio[i].checked = false;
-  let cuisineCheck = document.getElementsByName("cuisine-type");
+  let mealCheck = document.getElementsByName("meal-filters");
+  for (let i = 0; i < mealCheck.length; i++) mealCheck[i].checked = false;
+  let cuisineCheck = document.getElementsByName("cuisineType");
   for (let i = 0; i < cuisineCheck.length; i++) cuisineCheck[i].checked = false;
+  let calorieCheck = document.getElementsByName("calories");
+  for (let i = 0; i < calorieCheck.length; i++) calorieCheck[i].checked = false;
 };
 
 function handleFoodChange() {
@@ -66,47 +70,82 @@ async function fetchRecipe(food) {
   }
 }
 
-//Dish Type
-async function filterMealType() {
+// //Dish Type
+// async function filterMealType() {
+//   let response = await fetch(
+//     `https://api.edamam.com/search?q=${foodToSearch}&app_id=3424b541&app_key=0e5519f0352e931ba2358451a65bc487&${mealType}`
+//   );
+//   mealData = await response.json();
+//   for (i = 0; i < 5; i++) {
+//     addRecipeToPage(mealData);
+//   }
+// }
+
+// function getMealType() {
+//   recipeSection.innerHTML = "";
+//   mealType = `&mealType=${this.value}`;
+//   filterMealType();
+// }
+
+// document.querySelectorAll(".mealType").forEach((item) => {
+//   item.addEventListener("click", getMealType);
+// });
+
+// //Cuisine Type
+// async function filterCuisineType() {
+//   let response = await fetch(
+//     `https://api.edamam.com/search?app_id=3424b541&app_key=0e5519f0352e931ba2358451a65bc487&q=${foodToSearch}&cuisineType=${cuisineType}${mealType}`
+//   );
+//   cuisineData = await response.json();
+//   for (i = 0; i < 5; i++) {
+//     addRecipeToPage(cuisineData);
+//   }
+// }
+
+// function getCuisineType() {
+//   recipeSection.innerHTML = "";
+//   cuisineType = this.value;
+//   filterCuisineType();
+// }
+
+// document.querySelectorAll(".cuisineType").forEach((item) => {
+//   item.addEventListener("click", getCuisineType);
+// });
+
+//practice all filter functions
+async function filterMeals() {
   let response = await fetch(
-    `https://api.edamam.com/search?q=${foodToSearch}&app_id=3424b541&app_key=0e5519f0352e931ba2358451a65bc487&mealType=${mealType}`
+    `https://api.edamam.com/search?app_id=3424b541&app_key=0e5519f0352e931ba2358451a65bc487&q=${foodToSearch}${mealType}${cuisineType}${calories}`
   );
-  mealData = await response.json();
+  filterData = await response.json();
   for (i = 0; i < 5; i++) {
-    addRecipeToPage(mealData);
+    addRecipeToPage(filterData);
   }
 }
 
-function getMealType() {
+function applyFilters() {
   recipeSection.innerHTML = "";
-  mealType = this.value;
-  filterMealType();
+  let filters = document.querySelectorAll(".filter");
+  mealType = "";
+  cuisineType = "";
+  calories = "";
+  calorieArray = [];
+  filters.forEach((filter) => {
+    if (filter.checked === true) {
+      if (filter.className === "filter mealType") {
+        mealType += `&mealType=${filter.value}`;
+      } else if (filter.className === "filter cuisineType") {
+        cuisineType += `&cuisineType=${filter.value}`;
+      } else {
+        calorieArray.push(filter.min, filter.max);
+        calories = `&calories=${calorieArray[0]}-${
+          calorieArray[calorieArray.length - 1]
+        }`;
+      }
+    }
+  });
+  filterMeals();
 }
-
-document.querySelectorAll(".mealType").forEach((item) => {
-  item.addEventListener("click", getMealType);
-});
-
-//Cuisine Type
-async function filterCuisineType() {
-  let response = await fetch(
-    `https://api.edamam.com/search?app_id=3424b541&app_key=0e5519f0352e931ba2358451a65bc487&q=${foodToSearch}&cuisineType=${cuisineType}`
-  );
-  cuisineData = await response.json();
-  for (i = 0; i < 5; i++) {
-    addRecipeToPage(cuisineData);
-  }
-}
-
-function getCuisineType() {
-  recipeSection.innerHTML = "";
-  cuisineType = this.value;
-  filterCuisineType();
-}
-
-document.querySelectorAll(".cuisineType").forEach((item) => {
-  item.addEventListener("click", getCuisineType);
-});
 
 //catch error function
 

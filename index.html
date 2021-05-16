@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="grid-container">
-    <h1 class="section-heading grid-item">My Recipe Finder</h1>
+    <h1 class="section-heading grid-item">My Healthy Kitchen</h1>
     <section id="recipe-search" class="grid-item">
       <input
         aria-label="food-input"
@@ -18,43 +18,43 @@
         Give me a recipe!
       </button>
       <section class="filters">
-        <form class="radio-buttons">
+        <form class="meal-filters">
           <h3>Meal Type</h3>
           <input
-            class="mealType"
-            type="radio"
+            class="filter mealType"
+            type="checkbox"
             id="breakfast"
             name="meal-type"
             value="breakfast"
           />
           <label for="breakfast">Breakfast</label><br />
           <input
-            class="mealType"
-            type="radio"
+            class="filter mealType"
+            type="checkbox"
             id="lunch"
             name="meal-type"
             value="lunch"
           />
           <label for="lunch">Lunch</label><br />
           <input
-            class="mealType"
-            type="radio"
+            class="filter mealType"
+            type="checkbox"
             id="dinner"
             name="meal-type"
             value="dinner"
           />
           <label for="dinner">Dinner</label><br />
           <input
-            class="mealType"
-            type="radio"
+            class="filter mealType"
+            type="checkbox"
             id="teatime"
             name="meal-type"
             value="teatime"
           />
           <label for="teatime">Teatime</label><br />
           <input
-            class="mealType"
-            type="radio"
+            class="filter mealType"
+            type="checkbox"
             id="snack"
             name="meal-type"
             value="snack"
@@ -64,17 +64,23 @@
         <form class="cuisine-box">
           <h3>Cuisine</h3>
           <input
-            class="cuisineType"
+            class="filter cuisineType"
             type="checkbox"
             id="cuisine1"
             name="cuisine-type"
             value="American"
           />
           <label for="cuisine1"> American</label><br />
-          <input type="checkbox" id="cuisine2" name="cuisine2" value="Asian" />
+          <input
+            class="filter cuisineType"
+            type="checkbox"
+            id="cuisine2"
+            name="cuisine2"
+            value="Asian"
+          />
           <label for="cuisine2"> Asian</label><br />
           <input
-            class="cuisineType"
+            class="filter cuisineType"
             type="checkbox"
             id="cuisine3"
             name="cuisine-type"
@@ -82,7 +88,7 @@
           />
           <label for="cuisine3"> British</label><br />
           <input
-            class="cuisineType"
+            class="filter cuisineType"
             type="checkbox"
             id="cuisine4"
             name="cuisine-type"
@@ -90,7 +96,7 @@
           />
           <label for="cuisine4"> Caribbean</label><br />
           <input
-            class="cuisineType"
+            class="filter cuisineType"
             type="checkbox"
             id="cuisine5"
             name="cuisine-type"
@@ -98,7 +104,7 @@
           />
           <label for="cuisine5"> Central Europe</label><br />
           <input
-            class="cuisineType"
+            class="filter cuisineType"
             type="checkbox"
             id="cuisine6"
             name="cuisine-type"
@@ -106,7 +112,7 @@
           />
           <label for="Chinese"> Chinese</label><br />
           <input
-            class="cuisineType"
+            class="filter cuisineType"
             type="checkbox"
             id="cuisine7"
             name="cuisine-type"
@@ -114,7 +120,7 @@
           />
           <label for="cuisine7"> Eastern Europe</label><br />
           <input
-            class="cuisineType"
+            class="filter cuisineType"
             type="checkbox"
             id="cuisine8"
             name="cuisine-type"
@@ -122,7 +128,7 @@
           />
           <label for="cuisine7"> French</label><br />
           <input
-            class="cuisineType"
+            class="filter cuisineType"
             type="checkbox"
             id="cuisine9"
             name="cuisine-type"
@@ -130,7 +136,7 @@
           />
           <label for="cuisine9"> Indian</label><br />
           <input
-            class="cuisineType"
+            class="filter cuisineType"
             type="checkbox"
             id="cuisine10"
             name="cuisine-type"
@@ -138,7 +144,7 @@
           />
           <label for="cuisine10"> Italian</label><br />
           <input
-            class="cuisineType"
+            class="filter cuisineType"
             type="checkbox"
             id="cuisine11"
             name="cuisine-type"
@@ -146,7 +152,7 @@
           />
           <label for="cuisine11"> Japanese</label><br />
           <input
-            class="cuisineType"
+            class="filter cuisineType"
             type="checkbox"
             id="cuisine12"
             name="cuisine-type"
@@ -154,7 +160,7 @@
           />
           <label for="cuisine12"> Kosher</label><br />
           <input
-            class="cuisineType"
+            class="filter cuisineType"
             type="checkbox"
             id="cuisine13"
             name="cuisine-type"
@@ -162,7 +168,7 @@
           />
           <label for="cuisine13"> Mediterannean</label><br />
           <input
-            class="cuisineType"
+            class="filter cuisineType"
             type="checkbox"
             id="cuisine14"
             name="cuisine-type"
@@ -170,7 +176,7 @@
           />
           <label for="cuisine14"> Mexican</label><br />
           <input
-            class="cuisineType"
+            class="filter cuisineType"
             type="checkbox"
             id="cuisine15"
             name="cuisine-type"
@@ -178,7 +184,7 @@
           />
           <label for="cuisine16"> Middle Eastern</label><br />
           <input
-            class="cuisineType"
+            class="filter cuisineType"
             type="checkbox"
             id="cuisine16"
             name="cuisine-type"
@@ -186,7 +192,7 @@
           />
           <label for="cuisine16"> Nordic</label><br />
           <input
-            class="cuisineType"
+            class="filter cuisineType"
             type="checkbox"
             id="cuisine17"
             name="cuisine-type"
@@ -194,7 +200,7 @@
           />
           <label for="cuisine17"> South American</label><br />
           <input
-            class="cuisineType"
+            class="filter cuisineType"
             type="checkbox"
             id="cuisine18"
             name="cuisine-type"
@@ -202,6 +208,62 @@
           />
           <label for="cuisine18"> South East Asian</label><br />
         </form>
+        <form class="calories-filter">
+          <h3>Calories per Serving</h3>
+          <input
+            class="filter calories"
+            type="checkbox"
+            id="calories1"
+            name="calories"
+            value="less than 250"
+            min="0"
+            max="250"
+          />
+          <label for="calories1"> Less than 250kcal</label><br />
+          <input
+            class="filter calories"
+            type="checkbox"
+            id="calories2"
+            name="calories"
+            value="250kcal to 500kcal"
+            min="250"
+            max="500"
+          />
+          <label for="calories2"> 250kcal to 500kcal</label><br />
+          <input
+            class="filter calories"
+            type="checkbox"
+            id="calories3"
+            name="calories"
+            value="500kcal to 750kcal"
+            min="500"
+            max="750"
+          />
+          <label for="calories3"> 500kcal to 750kcal</label><br />
+          <input
+            class="filter calories"
+            type="checkbox"
+            id="calories4"
+            name="calories"
+            value="750kcal to 1000kcal"
+            min="750"
+            max="1000"
+          />
+          <label for="calories4"> 750kcal to 1000kcal</label><br />
+          <input
+            class="filter calories"
+            type="checkbox"
+            id="calories5"
+            name="calories"
+            value="1000kcal and above"
+            min="1000"
+            max="10,000"
+          />
+          <label for="calories5"> 1000kcal and above</label><br />
+        </form>
+        <button id="filter-button" onclick="applyFilters()">
+          Apply Filters
+        </button>
       </section>
     </section>
     <section id="recipe-filter" class="grid-item"></section>
