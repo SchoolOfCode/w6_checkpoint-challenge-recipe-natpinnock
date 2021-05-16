@@ -23,15 +23,19 @@ function handleFoodChange() {
 }
 
 addRecipeToPage = (test) => {
-  //section for each recipe
+  recipeSpace = document.querySelector("body");
+  recipeLink = document.createElement("a");
+  recipeLink.href = test.hits[i].recipe.url;
+  recipeLink.target = "_blank";
+  recipeSpace.appendChild(recipeLink);
   recipeSection = document.querySelector("#recipe-section");
+  recipeLink.appendChild(recipeSection);
   recipeBox = document.createElement("section");
   recipeBox.id = "recipebox";
   recipeSection.appendChild(recipeBox);
   //create a tag and show recipe label
   recipeLabel = document.createElement("a");
   recipeLabel.innerHTML = test.hits[i].recipe.label;
-  recipeLabel.href = test.hits[i].recipe.url;
   recipeBox.appendChild(recipeLabel);
   //create img tag and display image
   recipeImage = document.createElement("img");
@@ -43,8 +47,10 @@ addRecipeToPage = (test) => {
   recipeBox.appendChild(dietType);
   //create a p tag for cuisine
   cuisineType = document.createElement("p");
-  cuisineType.innerHTML = test.hits[i].recipe.cuisineType;
-  recipeBox.appendChild(cuisineType);
+  if (test.hits[i].recipe.cuisineType) {
+    cuisineType.innerHTML = test.hits[i].recipe.cuisineType;
+    recipeBox.appendChild(cuisineType);
+  }
   //create a p tag for health labels
   healthLabel = document.createElement("p");
   let healthArray = test.hits[i].recipe.healthLabels;
@@ -58,68 +64,38 @@ addRecipeToPage = (test) => {
     recipeBox.appendChild(healthLabel2);
   }
 };
-
 async function fetchRecipe(food) {
   let response = await fetch(
     `https://api.edamam.com/search?q=${foodToSearch}&app_id=3424b541&app_key=0e5519f0352e931ba2358451a65bc487`
   );
   data = await response.json();
-
-  for (i = 0; i < 5; i++) {
-    addRecipeToPage(data);
+  if (data !== "") {
+    for (i = 0; i < 5; i++) {
+      addRecipeToPage(data);
+    }
+  } else {
+    let searchSection = document.querySelector("#recipe-search");
+    let message = document.createElement("p");
+    message.innerText = "Sorry, there were no matches to your search!";
+    searchSection.appendChild(message);
   }
 }
 
-// //Dish Type
-// async function filterMealType() {
-//   let response = await fetch(
-//     `https://api.edamam.com/search?q=${foodToSearch}&app_id=3424b541&app_key=0e5519f0352e931ba2358451a65bc487&${mealType}`
-//   );
-//   mealData = await response.json();
-//   for (i = 0; i < 5; i++) {
-//     addRecipeToPage(mealData);
-//   }
-// }
-
-// function getMealType() {
-//   recipeSection.innerHTML = "";
-//   mealType = `&mealType=${this.value}`;
-//   filterMealType();
-// }
-
-// document.querySelectorAll(".mealType").forEach((item) => {
-//   item.addEventListener("click", getMealType);
-// });
-
-// //Cuisine Type
-// async function filterCuisineType() {
-//   let response = await fetch(
-//     `https://api.edamam.com/search?app_id=3424b541&app_key=0e5519f0352e931ba2358451a65bc487&q=${foodToSearch}&cuisineType=${cuisineType}${mealType}`
-//   );
-//   cuisineData = await response.json();
-//   for (i = 0; i < 5; i++) {
-//     addRecipeToPage(cuisineData);
-//   }
-// }
-
-// function getCuisineType() {
-//   recipeSection.innerHTML = "";
-//   cuisineType = this.value;
-//   filterCuisineType();
-// }
-
-// document.querySelectorAll(".cuisineType").forEach((item) => {
-//   item.addEventListener("click", getCuisineType);
-// });
-
-//practice all filter functions
+//apply filter functions
 async function filterMeals() {
   let response = await fetch(
     `https://api.edamam.com/search?app_id=3424b541&app_key=0e5519f0352e931ba2358451a65bc487&q=${foodToSearch}${mealType}${cuisineType}${calories}`
   );
   filterData = await response.json();
-  for (i = 0; i < 5; i++) {
-    addRecipeToPage(filterData);
+  if (data !== "") {
+    for (i = 0; i < 5; i++) {
+      addRecipeToPage(filterData);
+    }
+  } else {
+    let searchSection = document.querySelector("#recipe-search");
+    let message = document.createElement("p");
+    message.innerText = "Sorry, there were no matches to your search!";
+    searchSection.appendChild(message);
   }
 }
 
@@ -149,9 +125,8 @@ function applyFilters() {
 
 //catch error function
 
-// add some more filter options
-//what happens if any of the hits are null
 //move link to entire recipe box
 //show next 5 on click
 //additional API
+//validation
 //CSS styling
