@@ -8,7 +8,6 @@ let calorieArray = [];
 let calories = "";
 let totalResults = "";
 let crd = "";
-let searchURL = "";
 
 handleRecipeClick = () => {
   recipeSection.innerHTML = "";
@@ -133,14 +132,16 @@ function getCoords(position) {
 navigator.geolocation.getCurrentPosition(getCoords);
 
 async function findFoodBanks() {
-  lat = crd.latitude;
-  long = crd.longitude;
-  let response = await fetch("https://www.givefood.org.uk/api/2/locations/");
+  let response = await fetch(
+    `https://www.givefood.org.uk/api/2/foodbanks/search/?lat_lng=${crd.latitude},${crd.longitude}`
+  );
   let foodBanks = await response.json();
   console.log(foodBanks);
+  document.querySelector("#location").innerText = foodbanks;
 }
 
 findFoodBanks();
+
 //catch error function
 
 //show next 5 on click
