@@ -7,17 +7,31 @@ let cuisineType = "";
 let calorieArray = [];
 let calories = "";
 let totalResults = "";
-let crd = "";
+let needsList = [];
+let searchSection = "";
+let message = "";
 
 handleRecipeClick = () => {
-  recipeSection.innerHTML = "";
-  fetchRecipe(foodToSearch);
-  let mealCheck = document.getElementsByName("meal-filters");
-  for (let i = 0; i < mealCheck.length; i++) mealCheck[i].checked = false;
-  let cuisineCheck = document.getElementsByName("cuisineType");
-  for (let i = 0; i < cuisineCheck.length; i++) cuisineCheck[i].checked = false;
-  let calorieCheck = document.getElementsByName("calories");
-  for (let i = 0; i < calorieCheck.length; i++) calorieCheck[i].checked = false;
+  var letters = /^[A-Za-z]+$/;
+  if (foodToSearch.match(letters)) {
+    document.querySelector("#oops").innerHTML = "";
+    fetchRecipe(foodToSearch);
+    let mealCheck = document.getElementsByName("meal-filters");
+    for (let i = 0; i < mealCheck.length; i++) mealCheck[i].checked = false;
+    let cuisineCheck = document.getElementsByName("cuisineType");
+    for (let i = 0; i < cuisineCheck.length; i++)
+      cuisineCheck[i].checked = false;
+    let calorieCheck = document.getElementsByName("calories");
+    for (let i = 0; i < calorieCheck.length; i++)
+      calorieCheck[i].checked = false;
+  } else {
+    searchSection = document.querySelector("#recipe-search");
+    let message = document.createElement("p");
+    message.id = "oops";
+    message.innerText =
+      "Oops! Your search should contain letters only, no numbers!";
+    searchSection.appendChild(message);
+  }
 };
 
 function handleFoodChange() {
@@ -56,6 +70,7 @@ addRecipeToPage = (test) => {
     healthLabel.innerHTML = "Vegan";
     recipeBox.appendChild(healthLabel);
   }
+  //else
   healthLabel2 = document.createElement("p");
   if (healthArray.includes("Vegetarian")) {
     healthLabel2.innerHTML = "Vegetarian";
@@ -64,7 +79,7 @@ addRecipeToPage = (test) => {
 };
 async function fetchRecipe(food) {
   let response = await fetch(
-    `https://api.edamam.com/search?q=${foodToSearch}&app_id=3424b541&app_key=0e5519f0352e931ba2358451a65bc487&to=50`
+    `https://api.edamam.com/search?q=${foodToSearch}&app_id=3424b541&app_key=0e5519f0352e931ba2358451a65bc487&to=25`
   );
   data = await response.json();
   totalResults = data.hits.length;
@@ -86,7 +101,7 @@ async function filterMeals() {
   let response = await fetch(
     `https://api.edamam.com/search?app_id=3424b541&app_key=0e5519f0352e931ba2358451a65bc487&to=50&q=${foodToSearch}${mealType}${cuisineType}${calories}`
   );
-  data = await response.json();
+  let data = await response.json();
   totalResults = data.hits.length;
   console.log(totalResults);
   if (data !== "") {
@@ -124,27 +139,22 @@ function applyFilters() {
   });
   filterMeals();
 }
-//get location co-ords
-//search for nearby foodbanks in Give Food animationPlayState:
-function getCoords(position) {
-  crd = position.coords;
+
+async function getFoodBankNeeds() {
+  let response = await fetch("https://www.givefood.org.uk/api/2/needs/");
+  let data = await response.json();
+  for (i = 0; i < 10; i++) {
+    needsList.push(data[i].needs.substring(0, data[i].needs.indexOf("\r\n")));
+  }
+  addNeedsList();
 }
-navigator.geolocation.getCurrentPosition(getCoords);
+getFoodBankNeeds();
 
-async function findFoodBanks() {
-  let response = await fetch(
-    `https://www.givefood.org.uk/api/2/foodbanks/search/?lat_lng=${crd.latitude},${crd.longitude}`
-  );
-  let foodBanks = await response.json();
-  console.log(foodBanks);
-  document.querySelector("#location").innerText = foodbanks;
+function addNeedsList() {
+  foodBankList = document.querySelector("ol");
+  for (i = 0; i < needsList.length; i++) {
+    listItem = document.createElement("li");
+    listItem.innerText = needsList[i];
+    foodBankList.appendChild(listItem);
+  }
 }
-
-findFoodBanks();
-
-//catch error function
-
-//show next 5 on click
-//additional API
-//validation
-//CSS styling

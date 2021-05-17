@@ -1,4 +1,24 @@
+.heading {
+  font-family: "Pattaya", sans-serif;
+}
+
+h1 {
+  border-radius: 0.1em;
+  color: #5f9595;
+  font-size: 4em;
+  background-color: #c4d7d1;
+  text-align: center;
+  width: 90vw;
+  height: auto;
+  margin: auto;
+  padding: 0.8em;
+}
+
+body {
+  background-color: #e8eced;
+  font-family: "Roboto", sans-serif;
+}
+
 .grid-container {
-  display: grid;
-  grid-gap: 20px 20px;
+  display: flex;
 }

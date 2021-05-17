@@ -5,271 +5,299 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Healthy Kitchen</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pattaya&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
-  <body class="grid-container">
-    <h1 class="section-heading grid-item">My Healthy Kitchen</h1>
-    <p id="location"></p>
-    <section id="recipe-search" class="grid-item">
-      <input
-        aria-label="food-input"
-        id="food-input"
-        onchange="handleFoodChange()"
-      />
-      <button id="recipe-button" onclick="handleRecipeClick()">
-        Give me a recipe!
-      </button>
-    </section>
-    <section class="filters">
-      <form class="meal-filters">
-        <h3>Meal Type</h3>
+  <body>
+    <h1 class="heading section-heading grid-item">My Healthy Kitchen</h1>
+    <section class="grid-container">
+      <section id="recipe-search" class="grid-item">
         <input
-          class="filter mealType"
-          type="checkbox"
-          id="breakfast"
-          name="meal-type"
-          value="breakfast"
+          aria-label="food-input"
+          id="food-input"
+          pattern="[A-Za-z]"
+          onchange="handleFoodChange()"
         />
-        <label for="breakfast">Breakfast</label><br />
-        <input
-          class="filter mealType"
-          type="checkbox"
-          id="lunch"
-          name="meal-type"
-          value="lunch"
-        />
-        <label for="lunch">Lunch</label><br />
-        <input
-          class="filter mealType"
-          type="checkbox"
-          id="dinner"
-          name="meal-type"
-          value="dinner"
-        />
-        <label for="dinner">Dinner</label><br />
-        <input
-          class="filter mealType"
-          type="checkbox"
-          id="teatime"
-          name="meal-type"
-          value="teatime"
-        />
-        <label for="teatime">Teatime</label><br />
-        <input
-          class="filter mealType"
-          type="checkbox"
-          id="snack"
-          name="meal-type"
-          value="snack"
-        />
-        <label for="snack">Snack</label><br />
-      </form>
-      <form class="cuisine-box">
-        <h3>Cuisine</h3>
-        <input
-          class="filter cuisineType"
-          type="checkbox"
-          id="cuisine1"
-          name="cuisine-type"
-          value="American"
-        />
-        <label for="cuisine1"> American</label><br />
-        <input
-          class="filter cuisineType"
-          type="checkbox"
-          id="cuisine2"
-          name="cuisine2"
-          value="Asian"
-        />
-        <label for="cuisine2"> Asian</label><br />
-        <input
-          class="filter cuisineType"
-          type="checkbox"
-          id="cuisine3"
-          name="cuisine-type"
-          value="British"
-        />
-        <label for="cuisine3"> British</label><br />
-        <input
-          class="filter cuisineType"
-          type="checkbox"
-          id="cuisine4"
-          name="cuisine-type"
-          value="Caribbean"
-        />
-        <label for="cuisine4"> Caribbean</label><br />
-        <input
-          class="filter cuisineType"
-          type="checkbox"
-          id="cuisine5"
-          name="cuisine-type"
-          value="Central Europe"
-        />
-        <label for="cuisine5"> Central Europe</label><br />
-        <input
-          class="filter cuisineType"
-          type="checkbox"
-          id="cuisine6"
-          name="cuisine-type"
-          value="Chinese"
-        />
-        <label for="Chinese"> Chinese</label><br />
-        <input
-          class="filter cuisineType"
-          type="checkbox"
-          id="cuisine7"
-          name="cuisine-type"
-          value="Eastern Europe"
-        />
-        <label for="cuisine7"> Eastern Europe</label><br />
-        <input
-          class="filter cuisineType"
-          type="checkbox"
-          id="cuisine8"
-          name="cuisine-type"
-          value="French"
-        />
-        <label for="cuisine7"> French</label><br />
-        <input
-          class="filter cuisineType"
-          type="checkbox"
-          id="cuisine9"
-          name="cuisine-type"
-          value="Indian"
-        />
-        <label for="cuisine9"> Indian</label><br />
-        <input
-          class="filter cuisineType"
-          type="checkbox"
-          id="cuisine10"
-          name="cuisine-type"
-          value="Italian"
-        />
-        <label for="cuisine10"> Italian</label><br />
-        <input
-          class="filter cuisineType"
-          type="checkbox"
-          id="cuisine11"
-          name="cuisine-type"
-          value="Japanese"
-        />
-        <label for="cuisine11"> Japanese</label><br />
-        <input
-          class="filter cuisineType"
-          type="checkbox"
-          id="cuisine12"
-          name="cuisine-type"
-          value="Kosher"
-        />
-        <label for="cuisine12"> Kosher</label><br />
-        <input
-          class="filter cuisineType"
-          type="checkbox"
-          id="cuisine13"
-          name="cuisine-type"
-          value="Mediterannean"
-        />
-        <label for="cuisine13"> Mediterannean</label><br />
-        <input
-          class="filter cuisineType"
-          type="checkbox"
-          id="cuisine14"
-          name="cuisine-type"
-          value="Mexican"
-        />
-        <label for="cuisine14"> Mexican</label><br />
-        <input
-          class="filter cuisineType"
-          type="checkbox"
-          id="cuisine15"
-          name="cuisine-type"
-          value="Middle Eastern"
-        />
-        <label for="cuisine16"> Middle Eastern</label><br />
-        <input
-          class="filter cuisineType"
-          type="checkbox"
-          id="cuisine16"
-          name="cuisine-type"
-          value="Nordic"
-        />
-        <label for="cuisine16"> Nordic</label><br />
-        <input
-          class="filter cuisineType"
-          type="checkbox"
-          id="cuisine17"
-          name="cuisine-type"
-          value="South American"
-        />
-        <label for="cuisine17"> South American</label><br />
-        <input
-          class="filter cuisineType"
-          type="checkbox"
-          id="cuisine18"
-          name="cuisine-type"
-          value="South East Asian"
-        />
-        <label for="cuisine18"> South East Asian</label><br />
-      </form>
-      <form class="calories-filter">
-        <h3>Calories per Serving</h3>
-        <input
-          class="filter calories"
-          type="checkbox"
-          id="calories1"
-          name="calories"
-          value="less than 250"
-          min="0"
-          max="250"
-        />
-        <label for="calories1"> Less than 250kcal</label><br />
-        <input
-          class="filter calories"
-          type="checkbox"
-          id="calories2"
-          name="calories"
-          value="250kcal to 500kcal"
-          min="250"
-          max="500"
-        />
-        <label for="calories2"> 250kcal to 500kcal</label><br />
-        <input
-          class="filter calories"
-          type="checkbox"
-          id="calories3"
-          name="calories"
-          value="500kcal to 750kcal"
-          min="500"
-          max="750"
-        />
-        <label for="calories3"> 500kcal to 750kcal</label><br />
-        <input
-          class="filter calories"
-          type="checkbox"
-          id="calories4"
-          name="calories"
-          value="750kcal to 1000kcal"
-          min="750"
-          max="1000"
-        />
-        <label for="calories4"> 750kcal to 1000kcal</label><br />
-        <input
-          class="filter calories"
-          type="checkbox"
-          id="calories5"
-          name="calories"
-          value="1000kcal and above"
-          min="1000"
-          max="10000"
-        />
-        <label for="calories5"> 1000kcal and above</label><br />
-      </form>
-      <button id="filter-button" onclick="applyFilters()">Apply Filters</button>
-    </section>
+        <button id="recipe-button" onclick="handleRecipeClick()">
+          Give me a recipe!
+        </button>
+      </section>
+      <section class="filters grid-item">
+        <form class="meal-filters">
+          <h3 class="heading">Meal Type</h3>
+          <input
+            class="filter mealType"
+            type="checkbox"
+            id="breakfast"
+            name="meal-type"
+            value="breakfast"
+          />
+          <label for="breakfast">Breakfast</label><br />
+          <input
+            class="filter mealType"
+            type="checkbox"
+            id="lunch"
+            name="meal-type"
+            value="lunch"
+          />
+          <label for="lunch">Lunch</label><br />
+          <input
+            class="filter mealType"
+            type="checkbox"
+            id="dinner"
+            name="meal-type"
+            value="dinner"
+          />
+          <label for="dinner">Dinner</label><br />
+          <input
+            class="filter mealType"
+            type="checkbox"
+            id="teatime"
+            name="meal-type"
+            value="teatime"
+          />
+          <label for="teatime">Teatime</label><br />
+          <input
+            class="filter mealType"
+            type="checkbox"
+            id="snack"
+            name="meal-type"
+            value="snack"
+          />
+          <label for="snack">Snack</label><br />
+        </form>
+        <form class="cuisine-box">
+          <h3 class="heading">Cuisine</h3>
+          <input
+            class="filter cuisineType"
+            type="checkbox"
+            id="cuisine1"
+            name="cuisine-type"
+            value="American"
+          />
+          <label for="cuisine1"> American</label><br />
+          <input
+            class="filter cuisineType"
+            type="checkbox"
+            id="cuisine2"
+            name="cuisine2"
+            value="Asian"
+          />
+          <label for="cuisine2"> Asian</label><br />
+          <input
+            class="filter cuisineType"
+            type="checkbox"
+            id="cuisine3"
+            name="cuisine-type"
+            value="British"
+          />
+          <label for="cuisine3"> British</label><br />
+          <input
+            class="filter cuisineType"
+            type="checkbox"
+            id="cuisine4"
+            name="cuisine-type"
+            value="Caribbean"
+          />
+          <label for="cuisine4"> Caribbean</label><br />
+          <input
+            class="filter cuisineType"
+            type="checkbox"
+            id="cuisine5"
+            name="cuisine-type"
+            value="Central Europe"
+          />
+          <label for="cuisine5"> Central Europe</label><br />
+          <input
+            class="filter cuisineType"
+            type="checkbox"
+            id="cuisine6"
+            name="cuisine-type"
+            value="Chinese"
+          />
+          <label for="Chinese"> Chinese</label><br />
+          <input
+            class="filter cuisineType"
+            type="checkbox"
+            id="cuisine7"
+            name="cuisine-type"
+            value="Eastern Europe"
+          />
+          <label for="cuisine7"> Eastern Europe</label><br />
+          <input
+            class="filter cuisineType"
+            type="checkbox"
+            id="cuisine8"
+            name="cuisine-type"
+            value="French"
+          />
+          <label for="cuisine7"> French</label><br />
+          <input
+            class="filter cuisineType"
+            type="checkbox"
+            id="cuisine9"
+            name="cuisine-type"
+            value="Indian"
+          />
+          <label for="cuisine9"> Indian</label><br />
+          <input
+            class="filter cuisineType"
+            type="checkbox"
+            id="cuisine10"
+            name="cuisine-type"
+            value="Italian"
+          />
+          <label for="cuisine10"> Italian</label><br />
+          <input
+            class="filter cuisineType"
+            type="checkbox"
+            id="cuisine11"
+            name="cuisine-type"
+            value="Japanese"
+          />
+          <label for="cuisine11"> Japanese</label><br />
+          <input
+            class="filter cuisineType"
+            type="checkbox"
+            id="cuisine12"
+            name="cuisine-type"
+            value="Kosher"
+          />
+          <label for="cuisine12"> Kosher</label><br />
+          <input
+            class="filter cuisineType"
+            type="checkbox"
+            id="cuisine13"
+            name="cuisine-type"
+            value="Mediterannean"
+          />
+          <label for="cuisine13"> Mediterannean</label><br />
+          <input
+            class="filter cuisineType"
+            type="checkbox"
+            id="cuisine14"
+            name="cuisine-type"
+            value="Mexican"
+          />
+          <label for="cuisine14"> Mexican</label><br />
+          <input
+            class="filter cuisineType"
+            type="checkbox"
+            id="cuisine15"
+            name="cuisine-type"
+            value="Middle Eastern"
+          />
+          <label for="cuisine16"> Middle Eastern</label><br />
+          <input
+            class="filter cuisineType"
+            type="checkbox"
+            id="cuisine16"
+            name="cuisine-type"
+            value="Nordic"
+          />
+          <label for="cuisine16"> Nordic</label><br />
+          <input
+            class="filter cuisineType"
+            type="checkbox"
+            id="cuisine17"
+            name="cuisine-type"
+            value="South American"
+          />
+          <label for="cuisine17"> South American</label><br />
+          <input
+            class="filter cuisineType"
+            type="checkbox"
+            id="cuisine18"
+            name="cuisine-type"
+            value="South East Asian"
+          />
+          <label for="cuisine18"> South East Asian</label><br />
+        </form>
+        <form class="calories-filter">
+          <h3 class="heading">Calories per Serving</h3>
+          <input
+            class="filter calories"
+            type="checkbox"
+            id="calories1"
+            name="calories"
+            value="less than 250"
+            min="0"
+            max="250"
+          />
+          <label for="calories1"> Less than 250kcal</label><br />
+          <input
+            class="filter calories"
+            type="checkbox"
+            id="calories2"
+            name="calories"
+            value="250kcal to 500kcal"
+            min="250"
+            max="500"
+          />
+          <label for="calories2"> 250kcal to 500kcal</label><br />
+          <input
+            class="filter calories"
+            type="checkbox"
+            id="calories3"
+            name="calories"
+            value="500kcal to 750kcal"
+            min="500"
+            max="750"
+          />
+          <label for="calories3"> 500kcal to 750kcal</label><br />
+          <input
+            class="filter calories"
+            type="checkbox"
+            id="calories4"
+            name="calories"
+            value="750kcal to 1000kcal"
+            min="750"
+            max="1000"
+          />
+          <label for="calories4"> 750kcal to 1000kcal</label><br />
+          <input
+            class="filter calories"
+            type="checkbox"
+            id="calories5"
+            name="calories"
+            value="1000kcal and above"
+            min="1000"
+            max="10000"
+          />
+          <label for="calories5"> 1000kcal and above</label><br />
+        </form>
+        <button id="filter-button" onclick="applyFilters()">
+          Apply Filters
+        </button>
+      </section>
 
-    <section id="recipe-filter" class="grid-item"></section>
-    <section id="recipe-section" class="grid-item">
-      <a id="recipe-label"></a>
+      <section id="recipe-filter" class="grid-item"></section>
+      <section id="recipe-section" class="grid-item">
+        <a id="recipe-label"></a>
+      </section>
+      <section class="grid-item" id="foodbank">
+        <h3 class="heading">Your local food bank needs you</h3>
+        <p>
+          Have you found the perfect recipe? When you pop to the shops to pick
+          up your ingredients consider picking up some of these items for your
+          local food bank. Here are the top 10 items that food banks need a the
+          moment:
+        </p>
+        <ol></ol>
+        <p>
+          Find your local foodbank here:
+          <a href="https://www.trusselltrust.org/get-help/find-a-foodbank/"
+            >Trussell Trust</a
+          >
+        </p>
+      </section>
     </section>
     <script src="./main.js"></script>
   </body>
