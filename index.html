@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Pattaya&family=Roboto&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Raleway&display=swap"
       rel="stylesheet"
     />
     <link
@@ -22,6 +22,9 @@
   <body>
     <h1 class="section-heading grid-item">My Healthy Kitchen</h1>
     <section id="recipe-search">
+      <button type="submit" id="recipe-button" onclick="handleRecipeClick()">
+        <i class="fa fa-search"></i>
+      </button>
       <input
         placeholder="Search for a recipe..."
         aria-label="food-input"
@@ -29,9 +32,6 @@
         pattern="[A-Za-z]"
         onchange="handleFoodChange()"
       />
-      <button type="submit" id="recipe-button" onclick="handleRecipeClick()">
-        <i class="fa fa-search"></i>
-      </button>
     </section>
     <section class="flex-container">
       <section id="filters">

@@ -11,9 +11,15 @@ let needsList = [];
 let searchSection = "";
 let message = "";
 
+//to do - function to add a recipe on page load
+//generate a random number
+//complete get request for all recipes
+//add to page the recipe from the ger request random number.
+
 handleRecipeClick = () => {
-  var letters = /^[A-Za-z]+$/;
+  var letters = /^[A-Za-z\s]*$/;
   if (foodToSearch.match(letters)) {
+    recipeSection.innerHTML = "";
     // document.querySelector("#oops").innerHTML = "";
     fetchRecipe(foodToSearch);
     let mealCheck = document.getElementsByName("meal-filters");
@@ -43,38 +49,42 @@ addRecipeToPage = (test) => {
   recipeBox = document.createElement("section");
   recipeBox.id = "recipebox";
   recipeSection.appendChild(recipeBox);
+  //create img tag and display image
+  recipeImage = document.createElement("img");
+  recipeImage.src = test.hits[i].recipe.image;
+  recipeBox.appendChild(recipeImage);
+  //create recipe text section
+  recipeText = document.createElement("section");
+  recipeText.id = "recipetext";
+  recipeBox.appendChild(recipeText);
   //create a tag and show recipe label
   recipeLabel = document.createElement("a");
   recipeLabel.innerHTML = test.hits[i].recipe.label;
   recipeLabel.href = test.hits[i].recipe.url;
   recipeLabel.target = "_blank";
-  recipeBox.appendChild(recipeLabel);
-  //create img tag and display image
-  recipeImage = document.createElement("img");
-  recipeImage.src = test.hits[i].recipe.image;
-  recipeBox.appendChild(recipeImage);
+  recipeText.appendChild(recipeLabel);
   //create a p tag for diet type
   dietType = document.createElement("p");
   dietType.innerHTML = test.hits[i].recipe.dietLabels;
-  recipeBox.appendChild(dietType);
+  recipeText.appendChild(dietType);
   //create a p tag for cuisine
   cuisineType = document.createElement("p");
   if (test.hits[i].recipe.cuisineType) {
     cuisineType.innerHTML = test.hits[i].recipe.cuisineType;
-    recipeBox.appendChild(cuisineType);
+    recipeText.appendChild(cuisineType);
   }
   //create a p tag for health labels
   healthLabel = document.createElement("p");
   let healthArray = test.hits[i].recipe.healthLabels;
   if (healthArray.includes("Vegan")) {
     healthLabel.innerHTML = "Vegan";
-    recipeBox.appendChild(healthLabel);
+    recipeText.appendChild(healthLabel);
   }
   //else
   healthLabel2 = document.createElement("p");
   if (healthArray.includes("Vegetarian")) {
     healthLabel2.innerHTML = "Vegetarian";
-    recipeBox.appendChild(healthLabel2);
+    recipeText.appendChild(healthLabel2);
   }
 };
 async function fetchRecipe(food) {
