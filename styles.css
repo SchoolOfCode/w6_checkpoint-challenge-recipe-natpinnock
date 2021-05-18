@@ -1,3 +1,7 @@
+html {
+  padding: 0;
+  margin: 0;
+}
 .heading {
   font-family: "Pattaya", sans-serif;
 }
@@ -19,6 +23,57 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-.grid-container {
+#recipe-search {
+  font-size: 18px;
   display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  padding: 5px;
+  border-bottom: 1px solid #575756;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#food-input {
+  display: flex;
+  background-color: transparent;
+  width: 100%;
+  padding: 12px 0;
+  outline: 0;
+  border: 1px solid transparent;
+  border-radius: 0;
+  background-position: 100% center;
+}
+
+#recipe-button {
+  display: flex;
+  background-color: transparent;
+  width: 5%;
+  padding: 11px;
+  font-size: 17px;
+  float: right;
+  border: none;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.flex-item {
+  display: flex;
+}
+
+.filters {
+  margin: 1em;
+  padding: 1 em;
+  width: 25%;
+}
+
+#recipe-section {
+  flex-direction: column;
+}
+#foodbank {
+  display: flex;
+  flex-direction: column;
 }

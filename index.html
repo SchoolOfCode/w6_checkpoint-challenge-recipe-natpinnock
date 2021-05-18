@@ -13,23 +13,28 @@
       href="https://fonts.googleapis.com/css2?family=Pattaya&family=Roboto&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
 
   <body>
     <h1 class="heading section-heading grid-item">My Healthy Kitchen</h1>
-    <section class="grid-container">
-      <section id="recipe-search" class="grid-item">
-        <input
-          aria-label="food-input"
-          id="food-input"
-          pattern="[A-Za-z]"
-          onchange="handleFoodChange()"
-        />
-        <button id="recipe-button" onclick="handleRecipeClick()">
-          Give me a recipe!
-        </button>
-      </section>
-      <section class="filters grid-item">
+    <section id="recipe-search">
+      <input
+        placeholder="Search for a recipe..."
+        aria-label="food-input"
+        id="food-input"
+        pattern="[A-Za-z]"
+        onchange="handleFoodChange()"
+      />
+      <button type="submit" id="recipe-button" onclick="handleRecipeClick()">
+        <i class="fa fa-search"></i>
+      </button>
+    </section>
+    <section class="flex-container">
+      <section class="filters">
         <form class="meal-filters">
           <h3 class="heading">Meal Type</h3>
           <input
@@ -278,11 +283,10 @@
         </button>
       </section>
 
-      <section id="recipe-filter" class="grid-item"></section>
-      <section id="recipe-section" class="grid-item">
+      <section id="recipe-section" class="flex-item">
         <a id="recipe-label"></a>
       </section>
-      <section class="grid-item" id="foodbank">
+      <section class="flex-item" id="foodbank">
         <h3 class="heading">Your local food bank needs you</h3>
         <p>
           Have you found the perfect recipe? When you pop to the shops to pick

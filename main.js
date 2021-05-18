@@ -14,7 +14,7 @@ let message = "";
 handleRecipeClick = () => {
   var letters = /^[A-Za-z]+$/;
   if (foodToSearch.match(letters)) {
-    document.querySelector("#oops").innerHTML = "";
+    // document.querySelector("#oops").innerHTML = "";
     fetchRecipe(foodToSearch);
     let mealCheck = document.getElementsByName("meal-filters");
     for (let i = 0; i < mealCheck.length; i++) mealCheck[i].checked = false;
