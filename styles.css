@@ -1,25 +1,26 @@
 html {
   padding: 0;
-  margin: 0;
+  margin: 10px 70px;
 }
+
 .heading {
   font-family: "Pattaya", sans-serif;
+  font-size: 24px;
+  margin: 0;
 }
 
 h1 {
-  border-radius: 0.1em;
-  color: #5f9595;
-  font-size: 4em;
-  background-color: #c4d7d1;
-  text-align: center;
-  width: 90vw;
-  height: auto;
   margin: auto;
-  padding: 0.8em;
+  display: flex;
+  justify-content: center;
+  color: #f06543;
+  font-family: "Pattaya", sans-serif;
+  font-size: 40px;
+  background-color: #e8e9eb;
 }
 
 body {
-  background-color: #e8eced;
+  background-color: #e8e9eb;
   font-family: "Roboto", sans-serif;
 }
 
@@ -29,8 +30,8 @@ body {
   flex-wrap: nowrap;
   justify-content: center;
   padding: 5px;
-  border-bottom: 1px solid #575756;
-  width: 80%;
+  border-bottom: 1px solid #313638;
+  width: 80vw;
   margin-left: auto;
   margin-right: auto;
 }
@@ -64,16 +65,49 @@ body {
   display: flex;
 }
 
-.filters {
+#filters {
+  display: flex;
+  flex-direction: column;
   margin: 1em;
-  padding: 1 em;
-  width: 25%;
+  padding: 1em;
+  width: 20%;
+}
+
+#filter-button {
+  border: 0;
+  width: 8em;
+  height: 2em;
+  background-color: #f06543;
+  font-family: "Pattaya", sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 0;
+  margin: 0;
+}
+.filter-section {
+  padding: 0.5em 0em;
 }
 
 #recipe-section {
+  display: flex;
   flex-direction: column;
+  margin: 1em;
+  padding: 1em;
+  width: 40%;
 }
+#recipebox {
+  height: 300px;
+  margin: auto;
+  padding: 1em;
+}
+img {
+  float: left;
+}
+
 #foodbank {
   display: flex;
   flex-direction: column;
+  margin: 1em;
+  padding: 1em;
+  width: 30%;
 }

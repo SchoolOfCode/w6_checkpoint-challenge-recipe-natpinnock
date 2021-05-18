@@ -20,7 +20,7 @@
   </head>
 
   <body>
-    <h1 class="heading section-heading grid-item">My Healthy Kitchen</h1>
+    <h1 class="section-heading grid-item">My Healthy Kitchen</h1>
     <section id="recipe-search">
       <input
         placeholder="Search for a recipe..."
@@ -34,8 +34,11 @@
       </button>
     </section>
     <section class="flex-container">
-      <section class="filters">
-        <form class="meal-filters">
+      <section id="filters">
+        <button id="filter-button" onclick="applyFilters()">
+          Apply Filters
+        </button>
+        <form class="filter-section">
           <h3 class="heading">Meal Type</h3>
           <input
             class="filter mealType"
@@ -78,7 +81,7 @@
           />
           <label for="snack">Snack</label><br />
         </form>
-        <form class="cuisine-box">
+        <form class="filter-section">
           <h3 class="heading">Cuisine</h3>
           <input
             class="filter cuisineType"
@@ -225,7 +228,7 @@
           />
           <label for="cuisine18"> South East Asian</label><br />
         </form>
-        <form class="calories-filter">
+        <form class="filter-section">
           <h3 class="heading">Calories per Serving</h3>
           <input
             class="filter calories"
@@ -278,14 +281,9 @@
           />
           <label for="calories5"> 1000kcal and above</label><br />
         </form>
-        <button id="filter-button" onclick="applyFilters()">
-          Apply Filters
-        </button>
       </section>
 
-      <section id="recipe-section" class="flex-item">
-        <a id="recipe-label"></a>
-      </section>
+      <section id="recipe-section" class="flex-item flex-container"></section>
       <section class="flex-item" id="foodbank">
         <h3 class="heading">Your local food bank needs you</h3>
         <p>
