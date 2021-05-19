@@ -16,6 +16,7 @@ let message = "";
 //complete get request for all recipes
 //add to page the recipe from the ger request random number.
 
+//to do  -treat the return key the same as clicking search button.
 handleRecipeClick = () => {
   var letters = /^[A-Za-z\s]*$/;
   if (foodToSearch.match(letters)) {
@@ -167,4 +168,16 @@ function addNeedsList() {
     listItem.innerText = needsList[i];
     foodBankList.appendChild(listItem);
   }
+}
+
+function dropdownFn() {
+  document.getElementById("dropdown1").classList.toggle("show");
+}
+
+function dropdownFn2() {
+  document.getElementById("dropdown2").classList.toggle("show");
+}
+
+function dropdownFn3() {
+  document.getElementById("dropdown3").classList.toggle("show");
 }
