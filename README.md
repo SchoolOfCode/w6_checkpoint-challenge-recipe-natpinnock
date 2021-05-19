@@ -46,3 +46,10 @@ Note: We have added some of the code for you already. Please don't change this. 
 - Add a CSS file and style your page appropriately.
 
 Take a look at sites like [BBC Good Food](https://www.bbcgoodfood.com/) for inspiration. Explore recipe sites from a user perspective, and think about how you could use the newfound power of APIs, along with your knowledge of creating dynamic websites, to build an experience based on searching for recipes. Collaborate with your pair and team to build something amazing - you don't have to write your code alone!
+
+## Still to do if time:
+- Make suggested changes from lighthouse and axe
+- Add a random recipe to the page on load
+- Add enter key functionality to the search bar
+- Improve apearance of recipe details
+- Attempt to change use of Give Food API to find a local foodbank using the current location co-ords (CORS issue)
