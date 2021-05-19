@@ -1,0 +1,249 @@
+.heading {
+  font-family: "Abril Fatface", sans-serif;
+  font-size: 20px;
+  margin: 0;
+  color: #313638;
+}
+
+h1 {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  color: #f06543;
+  font-family: "Abril Fatface", sans-serif;
+  font-size: 40px;
+  background-color: #e8e9eb;
+}
+
+body {
+  background-color: #e8e9eb;
+  font-family: "Raleway", sans-serif;
+}
+
+#recipe-search {
+  font-size: 18px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  padding: 5px;
+  border-bottom: 1px solid #313638;
+  width: 80vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#food-input {
+  display: flex;
+  background-color: transparent;
+  width: 100%;
+  padding: 12px 0;
+  outline: 0;
+  border: 1px solid transparent;
+  background-position: 100% center;
+}
+
+#recipe-button {
+  display: flex;
+  background-color: transparent;
+  width: 5%;
+  padding: 11px;
+  font-size: 17px;
+  float: right;
+  border: none;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.flex-item {
+  display: flex;
+}
+
+#filters {
+  line-height: 2;
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+  width: 20%;
+  border-right: 1px solid black;
+}
+
+#filter-button {
+  border: 0;
+  width: 8em;
+  height: 2em;
+  background-color: #f06543;
+  font-family: "Abril Fatface", sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 0;
+  margin: 0;
+}
+.filter-section {
+  padding: 0.5em 0em;
+}
+
+#recipe-section {
+  display: flex;
+  align-content: flex-start;
+  flex-direction: column;
+  padding: 2em;
+  width: 40%;
+}
+
+#recipebox {
+  align-content: flex-start;
+  border: 1px solid black;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: row;
+  height: 300px;
+  width: 35vw;
+  margin-bottom: 2em;
+}
+
+#recipetext {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 1em;
+  padding: 1em;
+}
+
+#recipetext a {
+  font-weight: bold;
+  color: #f06543;
+  background-color: transparent;
+}
+
+#recipetext a:hover {
+  background-color: #313638;
+}
+
+#recipetext a:visited {
+  color: #f09d51;
+}
+
+#foodbank {
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+  width: 30%;
+  border-left: 1px solid black;
+}
+
+/* 
+media queries */
+
+@media (max-width: 815px) {
+  html {
+    padding: 0;
+    margin: 5px 5px;
+  }
+  body h1 {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 30px;
+  }
+
+  #recipe-search {
+    width: 90vw;
+  }
+
+  #recipe-button {
+    display: flex;
+    background-color: transparent;
+    width: 15%;
+    padding: 10px;
+    margin: 0;
+    font-size: 17px;
+    float: right;
+    border: none;
+  }
+
+  .flex-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .flex-item {
+    display: flex;
+    flex-direction: row;
+  }
+
+  #filters {
+    line-height: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 20%;
+    padding: 1em;
+    margin: 0;
+    border-right: 1px solid transparent;
+  }
+
+  #filter-button {
+    border: 0;
+    width: 8em;
+    height: 4em;
+    background-color: #f06543;
+    font-family: "Abril Fatface", sans-serif;
+    font-size: 20px;
+    padding: 0.2em;
+    margin: 0.2em;
+  }
+  .filter-section {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    display: inline-block;
+    margin: 10px;
+  }
+
+  #filtermenu {
+    cursor: pointer;
+  }
+
+  .filter-content {
+    display: none;
+    position: absolute;
+    background-color: #f6f6f6;
+    min-width: 230px;
+    border: 1px solid #ddd;
+    z-index: 1;
+  }
+
+  .show {
+    display: block;
+  }
+
+  #recipe-section {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  #recipebox {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    height: auto;
+    width: 80vw;
+  }
+
+  #recipetext {
+    display: flex;
+    flex-flow: column wrap;
+    margin: 1em;
+  }
+
+  #foodbank {
+    display: flex;
+    flex-direction: column;
+    padding: 0.75em;
+    width: auto;
+    border-left: 0;
+  }
+}
