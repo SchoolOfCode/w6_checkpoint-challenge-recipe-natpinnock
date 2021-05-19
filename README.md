@@ -50,6 +50,7 @@ Take a look at sites like [BBC Good Food](https://www.bbcgoodfood.com/) for insp
 ## Still to do if time:
 - Make suggested changes from lighthouse and axe
 - Add a random recipe to the page on load
+- Stick a searach bar to the top of the page on scroll
 - Add enter key functionality to the search bar
 - Improve apearance of recipe details
 - Attempt to change use of Give Food API to find a local foodbank using the current location co-ords (CORS issue)
